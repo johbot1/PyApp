@@ -1,4 +1,4 @@
-#Auth.py
+#App.py
 #Author: John Botonakis
 #With help from "Tech With Tim" on Youtube
 #Desc:
