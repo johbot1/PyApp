@@ -1,3 +1,8 @@
+#Init.py
+#Author: John Botonakis
+#With help from "Tech With Tim" on Youtube
+#Desc:
+
 from flask import Flask
 
 def create_app():
