@@ -29,8 +29,6 @@ def create_app():
     # Initialize the SQLAlchemy database object with the Flask app
     db.init_app(app)
 
-
-
     # Import and register blueprints for routing
     from .views import views
     from .auth import auth
