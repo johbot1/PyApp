@@ -11,10 +11,3 @@ app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-# The route() function of the Flask class is a decorator,
-# which tells the application which URL should call
-# the associated function.
-

@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name = 'viewport' content = 'width = device-width,initial-scale=1'/>
-<!-- Imports BOOTSTRAP; a Content delivery system to load visual elements without downloading them -->
+
+<!-- Imports BOOTSTRAP framework; a Content delivery system to load visual elements without downloading them -->
     <link
         rel = "stylesheet"
         href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -35,15 +36,16 @@
         </button>
         <div class = "collapse navbar-collapse" id = "navbar">
             <div class = "navbar-nav">
+                <a class = "nav-item nav-link" id = "home" href="/home"> Home </a>
+                <a class = "nav-item nav-link" id = "signup" href="/signup"> Sign Up </a>
                 <a class = "nav-item nav-link" id = "login" href="/login"> Login </a>
-                <a class = "nav-item nav-link" id = "signup" href="/signin"> Sign Up </a>
-                <a class = "nav-item nav-link" id = "home" href="/login"> Home </a>
-                <a class = "nav-item nav-link" id = "logout" href="/logout"> Log Out </a>
+                <a class = "nav-item nav-link" id = "logout" href="/home"> Log Out </a>
             </div>
         </div>
     </nav>
     <div class = "container">
-        {%block content%} {% endblock %}
+        {% block content%}
+        {% endblock %}
     </div>
 
 <!-- Loads in nice looking javascript to help navigation. -->
