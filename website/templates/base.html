@@ -1,4 +1,4 @@
-<!--base.html -->
+<!--Base.html -->
 <!--Author: John Botonakis-->
 <!-- With help from "Tech With Tim" on Youtube -->
 <!--Desc: Create a base template to pull from for HTML setups -->
@@ -16,16 +16,22 @@
         integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous"
         />
+    <!-- Font Awesome CSS -->
+    <!-- Provides access to scalable icons and social logos -->
     <link
         rel = "stylesheet"
         href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         crossorigin = "anonymous"
         />
-    <title>{% block title %}Home{%endblock%}</title>
+    <!-- Dynamic Page Title -->
+    <!-- This block is overridden in child templates -->
+    <title> {% block title %} Home {%endblock%} </title>
 </head>
 <body>
 <!--Navigation Bar -->
+<!-- Provides links for navigation between pages -->
     <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Toggler Button -->
 <!--  Expands navbar on small screens  -->
         <button
         class="navbar-toggler"
@@ -45,6 +51,7 @@
         </div>
     </nav>
 <!--Success/Error Messages Displaying -->
+<!-- Displays messages flashed by the Flask backend -->
    {% with messages = get_flashed_messages(with_categories =true) %}
     {% if messages %}
         {% for category, message in messages %}
@@ -58,12 +65,14 @@
     {%endif%}
     {%endwith%}
 <!--Main Content Container: -->
+<!-- Content defined in child templates will be inserted here -->
     <div class = "container">
         {% block content%}
         {% endblock %}
     </div>
 
-<!-- Loads in nice looking javascript to help navigation. -->
+<!-- JavaScript Libraries -->
+<!-- Bootstrap and its dependencies (jQuery and Popper.js) for interactive components -->
 <!-- Author: Tech With Tim -->
 <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

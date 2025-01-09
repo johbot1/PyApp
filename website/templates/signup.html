@@ -1,35 +1,43 @@
 <!-- Signup.html -->
 <!-- Author: John Botonakis -->
 <!-- With help from "Tech With Tim" on Youtube -->
-<!--Desc: Using Jinja, these two lines will change the title block in the base template -->
-
-{%extends"base.html"%}
-{% block title %} Signup {%endblock%}
+<!-- Desc:
+     This template creates the signup page for the web app.
+     It extends the base template and provides a form for users to create a new account
+     by entering their email, first name, and password (with confirmation).
+-->
+{%extends"base.html"%} <!-- Extends the base template for consistent structure and styling -->
+{% block title %} Signup {%endblock%}<!-- Overrides the 'title' block in the base template -->
 
 {%block content %}
+<!-- Content specific to the Signup page -->
 <h1> This is the Sign Up page</h1>
+<!-- Signup Form -->
 <form method="post">
+        <!-- Form Title -->
     <h3 align = "center"> Sign Up! </h3>
+    <!-- Email Input Field -->
     <div class = "form-group">
         <label for = "email"> Email Address </label>
         <input type = "email" class = "form-control" name = "email_input" id = "email" placeholder = "Enter Email Address">
-
     </div>
+    <!-- First Name Input Field -->
      <div class = "form-group">
         <label for = "firstname"> First Name </label>
         <input type = "text" class = "form-control" name = "firstname_input" id = "firstname" placeholder = "Enter First Name">
-
     </div>
-     <div class = "form-group">
+    <!-- Password Input Field -->
+    <div class = "form-group">
         <label for = "password1"> Password </label>
         <input type = "password" class = "form-control" name = "pass1_input" id = "password1" placeholder = "Enter Password">
-
     </div>
+    <!-- Password Confirmation Input Field -->
      <div class = "form-group">
         <label for = "password2"> Password (Confirm) </label>
         <input type = "password" class = "form-control" name = "pass2_input" id = "password2" placeholder = "Confirm Password">
     </div>
     <br />
+     <!-- Submit Button -->
     <button type = "submit" class = "btn btn-primary"> Submit </button>
 </form>
 {%endblock%}

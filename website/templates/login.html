@@ -1,27 +1,33 @@
 <!-- Login.html -->
 <!-- Author: John Botonakis -->
 <!-- With help from "Tech With Tim" on Youtube -->
-<!--Desc: Using Jinja, these two lines will change the title block in the base template -->
+<!-- Desc:
+     This template creates the login page for the web app.
+     It extends the base template and provides a form for users to enter their email and password.
+-->
+{% extends"base.html" %} <!-- Extends the base template for consistent structure and styling -->
 
-{% extends"base.html" %}
-{% block title %} Login {%endblock%}
+{% block title %} Login {% endblock %}<!-- Overrides the 'title' block in the base template -->
 
 {%block content %}
-<h1> This is the Log In page</h1>
+
+<!-- Login Form -->
 <form method="post">
+    <!-- Form Title -->
     <h3 align = "center"> Log In! </h3>
+    <!-- Email Input Field -->
     <div class = "form-group">
         <label for = "email"> Email Address </label>
         <input type = email" class = "form-control" name = "email_input" id = "email" placeholder = "Enter Email Address">
-
     </div>
-
+    <!-- Password Input Field -->
      <div class = "form-group">
         <label for = "login_password"> Password </label>
         <input type = "password" class = "form-control" name = "loginpass_input" id = "login_password" placeholder = "Enter Password">
-
+     </div>
 
     <br />
+    <!-- Submit Button -->
     <button type = "submit" class = "btn btn-primary"> Login </button>
 </form>
 {%endblock%}

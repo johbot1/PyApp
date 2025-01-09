@@ -1,11 +1,15 @@
 <!-- Home.html -->
 <!-- Author: John Botonakis -->
 <!-- With help from "Tech With Tim" on Youtube -->
-<!--Desc: Using Jinja, these two lines will change the title block in the base template -->
+<!-- Desc:
+     This template defines the "Home" page for the web app.
+     It uses Jinja2 templating to extend the base template and overrides the title and content blocks.
+-->
 
-{%extends"base.html"%}
-{% block title %} Home {%endblock%}
+{%extends"base.html"%} <!-- Extends the base template to maintain a consistent layout -->
+{% block title %} Home {%endblock%} <!-- Overrides the 'title' block in the base template -->
 
-{%block content %}
+
+{%block content %}<!-- Any and all content specific to the Home page -->
 <h1> This is the HOME page</h1>
 {%endblock%}
