@@ -34,5 +34,5 @@ class User(UserMixin, db.Model):
         index=True)# Username of the user, must be unique and indexed for faster queries
     password = db.Column(
         db.String(100),
-        nullable=False)#TODO: !!FIX PLAINTEXT PASSWORDS!!
+        nullable=False)
     notes = db.relationship("Note", backref="user", lazy="dynamic")
