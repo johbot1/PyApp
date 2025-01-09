@@ -7,6 +7,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from flask_login import LoginManager
 
 
 # Initialize the SQLAlchemy database object
@@ -28,6 +29,8 @@ def create_app():
     # Initialize the SQLAlchemy database object with the Flask app
     db.init_app(app)
 
+
+
     # Import and register blueprints for routing
     from .views import views
     from .auth import auth
@@ -41,6 +44,15 @@ def create_app():
     from .models import User, Note
 
     create_db(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    #How to load a user
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     return app
 

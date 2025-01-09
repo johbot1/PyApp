@@ -22,6 +22,7 @@ class Note(db.Model):
 
 #User:
 #Represents a users, with their own ID, email, username, and password
+#UserMixin is needed for compatability with current_user module of flask_login
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True) # Unique identifier for each user (Primary Key)
     email = db.Column(

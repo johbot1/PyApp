@@ -4,7 +4,7 @@
 #Desc:
 # This file handles the routes related to authentication, including login, logout, and signup.
 from flask import Blueprint, render_template, request,flash,redirect,url_for
-
+from flask_login import login_user,logout_user,login_required,current_user
 from . import db
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -15,8 +15,9 @@ auth = Blueprint('auth', __name__)
 # Route: Home
 # This route renders the home page.
 @auth.route('/home')
+@login_required
 def home():
-    return render_template("home.html")
+    return render_template("home.html", user = current_user)
 
 # Route: Login
 # Handles both GET and POST requests for the login page.
@@ -25,23 +26,26 @@ def login():
    if request.method == 'POST':
      email = request.form.get('email_input')
      password = request.form.get('loginpass_input')
+
      user = User.query.filter_by(email = email).first()
      if user:
          if check_password_hash(user.password, password):
-             flash("Login Successful!")
+             flash("Login Successful!", category="success")
+             login_user(user, remember=True)
              return redirect(url_for('views.home'))
          else:
              flash("Login Failed! Check your username/password combination.", category="error")
      else:
          flash("Login Failed! Email does not exist.", category="error")
-
-     return render_template("login.html", text = "User is True", boolean = False)
+     return render_template("login.html", user = current_user)
 
 # Route: Logout
 # Placeholder route for user logout.
 @auth.route('/logout')
+@login_required #Cannot access this page unless you're logged in.
 def logout():
-    return "<p> Logout </p>"
+    logout_user()
+    return redirect(url_for('auth.login'))
 
 # Route: Signup
 # Handles user registration with GET and POST methods.
@@ -54,7 +58,7 @@ def signup():
         password1 = request.form.get('pass1_input')
         password2 = request.form.get('pass2_input')
 
-        user = User.query.filter_by(email=email).first()
+        user = User.query.filter_by(email_input=email).first()
         #Input Validation
         #TODO: Could this be shrunk into it's own function?
         if user:
@@ -75,7 +79,8 @@ def signup():
                 password = generate_password_hash(password1, method = 'scrypt'))
             db.session.add(new_user)
             db.session.commit()
+            login_user(user, remember=True)
             flash("Account Created Successfully!", category="success")
             return redirect(url_for('views.home'))
 
-    return render_template("signup.html")# Renders the signup page
+    return render_template("signup.html",user = current_user)# Renders the signup page
