@@ -4,40 +4,34 @@
 #Desc:
 # This file handles the routes related to authentication, including login, logout, and signup.
 from flask import Blueprint, render_template, request,flash,redirect,url_for
+from .models import User
 from flask_login import login_user,logout_user,login_required,current_user
 from . import db
-from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Create a Blueprint for the authentication routes
 auth = Blueprint('auth', __name__)
-
-# Route: Home
-# This route renders the home page.
-@auth.route('/home')
-@login_required
-def home():
-    return render_template("home.html", user = current_user)
 
 # Route: Login
 # Handles both GET and POST requests for the login page.
 @auth.route('/login', methods = ['GET', 'POST'])
 def login():
    if request.method == 'POST':
-     email = request.form.get('email_input')
-     password = request.form.get('loginpass_input')
+     email = request.form.get('email')
+     password = request.form.get('password')
 
-     user = User.query.filter_by(email = email).first()
+     user = User.query.filter_by(email_login = email).first()
      if user:
          if check_password_hash(user.password, password):
-             flash("Login Successful!", category="success")
+             flash('Logged in successfully!', category='success')
              login_user(user, remember=True)
              return redirect(url_for('views.home'))
          else:
-             flash("Login Failed! Check your username/password combination.", category="error")
+             flash('Login Unsuccessful! Check your email/password combination', category='error')
      else:
-         flash("Login Failed! Email does not exist.", category="error")
-     return render_template("login.html", user = current_user)
+         flash('Login Unsuccessful! Email does not exist.', category='error')
+
+   return render_template("login.html", user=current_user)
 
 # Route: Logout
 # Placeholder route for user logout.
@@ -53,12 +47,12 @@ def logout():
 def signup():
     if request.method == "POST":
         # Retrieves inputs from the signup form
-        email = request.form.get('email_input')
-        first_name = request.form.get('firstname_input')
-        password1 = request.form.get('pass1_input')
-        password2 = request.form.get('pass2_input')
+        email = request.form.get('email_signup')
+        first_name = request.form.get('firstname_signup')
+        password1 = request.form.get('pass1_signup')
+        password2 = request.form.get('pass2_signup')
 
-        user = User.query.filter_by(email_input=email).first()
+        user = User.query.filter_by(email=email).first()
         #Input Validation
         #TODO: Could this be shrunk into it's own function?
         if user:
