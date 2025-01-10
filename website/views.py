@@ -4,8 +4,9 @@
 #Desc:
 from datetime import datetime
 
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
+import json
 
 from . import db
 from .models import Note
@@ -26,3 +27,14 @@ def home():
             flash('Note successfully added!', category='success')
 
     return render_template("home.html", user=current_user)
+
+@views.route('/delete-note', methods=['POST'])
+def delete_note():
+    note = json.loads(request.data)
+    noteId = note['noteId']
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id: #If the user owns the note,
+            db.session.delete(note) #Then delete it
+            db.session.commit() #Commit the changes to the db
+    return jsonify({}) #Return an empty response
