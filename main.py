@@ -1,17 +1,19 @@
-#Main.py
-#Author: John Botonakis
-#With help from "Tech With Tim" on Youtube
-#Desc: This is the entry point for the web app.
-# It initializes the app using the `create_app` function from the `website` package and starts the development server.
+# Main.py
+# Author: John Botonakis
+# With some help from "Tech With Tim" on YouTube
+# Desc:
+# This is the entry point for the web app. It initializes the app
+# using the `create_app` function from the `website` package and
+# starts the development server.
 from website import create_app
 
-# Flask constructor takes the name of
-# from website import create_app
-# current module (__name__) as argument.
+# Creates an application using the model defined in the website folder
+# It then runs that created app.
 app = create_app()
 
 if __name__ == '__main__':
     # Starts the development server
     # `debug=True` enables debug mode, which provides detailed error messages
     # and automatically reloads the server when code changes.
+    # Change to 'debug=False' when deploying.
     app.run(debug=True)

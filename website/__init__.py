@@ -1,21 +1,24 @@
-#Init.py
-#Author: John Botonakis
-#With help from "Tech With Tim" on Youtube
-#Desc:
-#This file initializes the Flask application, sets up the database, and registers the blueprints for routing.
+# Init.py
+# Author: John Botonakis
+# With some help from "Tech With Tim" on YouTube
+# Desc:
+# This file initializes the Flask application, sets up
+# the database, and registers the blueprints for routing.
+from os import path
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from os import path
 from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
 
-
-# Initialize the SQLAlchemy database object
+# Initialize the SQLAlchemy database object as db
 db = SQLAlchemy()
 # Name of the SQLite database file
 DB_NAME = "database.db"
 
-# Function to create and configure the Flask application
+
+# This function creates the web app by beginning a Flask app,
+# configuring its database, registering its blueprints and
+# loading its users.
 def create_app():
     # Create a Flask app instance
     app = Flask(__name__)
@@ -39,23 +42,32 @@ def create_app():
     # Register the 'auth' blueprint with no URL prefix
     app.register_blueprint(auth, url_prefix="/")
 
+    # Import the User and Note classes. Done here, as opposed to
+    # outside of this loop, to better
     from .models import User, Note
 
+    # Creates the database using the 'app' as contextual argument
     create_db(app)
 
+    # Using flask_login, creates a login manager that will
+    # save the settings for logging a user in. It is told to look
+    # for login information by being pointed to 'auth.login'.
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    #How to load a user
+    # Using flask_login as a Login Manager to get the current user ID
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
 
     return app
 
-#Using OS.path, check to see if the DB exists.
-#If not, create it and confirm it with a printout
+
+# Using OS.path, check to see if the DB exists.
+# If not, create it with the app argument as context,
+# and confirm it with a printout. App context is needed to avoid
+# circuluar logic issues, and used instead of passing 'app' to each function.
 def create_db(app):
     if not path.exists('website/' + DB_NAME):
         with app.app_context():

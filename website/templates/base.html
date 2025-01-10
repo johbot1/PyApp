@@ -1,28 +1,28 @@
 <!--Base.html -->
 <!--Author: John Botonakis-->
-<!-- With help from "Tech With Tim" on Youtube -->
+<!-- With some help from "Tech With Tim" on Youtube -->
 <!--Desc: Create a base template to pull from for HTML setups -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name = 'viewport' content = 'width = device-width,initial-scale=1'/>
+    <meta charset="UTF-8"/>
+    <meta content='width = device-width,initial-scale=1' name='viewport'/>
 
-<!-- Imports BOOTSTRAP framework; a Content delivery system to load visual elements without downloading them -->
+    <!-- Imports BOOTSTRAP framework; a Content delivery system to load visual elements without downloading them -->
     <link
-        rel = "stylesheet"
-        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity = "sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-        crossorigin="anonymous"
-        />
+            crossorigin="anonymous"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            rel="stylesheet"
+    />
     <!-- Font Awesome CSS -->
     <!-- Provides access to scalable icons and social logos -->
     <link
-        rel = "stylesheet"
-        href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        crossorigin = "anonymous"
-        />
+            crossorigin="anonymous"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
+    />
     <!-- Dynamic Page Title -->
     <!-- This block is overridden in child templates -->
     <title> {% block title %} Home {%endblock%} </title>
@@ -30,78 +30,89 @@
 <body>
 <!--Navigation Bar -->
 <!-- Provides links for navigation between pages -->
-    <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
-<!-- Toggler Button -->
-<!--  Expands navbar on small screens  -->
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbar"
-      >
-            <span class ="navbar-toggler-icon"></span>
-        </button>
-        <div class = "collapse navbar-collapse" id = "navbar">
-            <div class = "navbar-nav">
-                {% if user.is_authenticated %}
-                <a class = "nav-item nav-link" id = "home" href="/"> Home </a>
-                <a class = "nav-item nav-link" id = "logout" href="/logout"> Log Out </a>
-                {% else %}
-                <a class = "nav-item nav-link" id = "signup" href="/signup"> Sign Up </a>
-                <a class = "nav-item nav-link" id = "login" href="/login"> Login </a>
-                {% endif %}
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Toggler Button -->
+    <!-- Expands navbar on small screens  -->
+    <button
+            class="navbar-toggler"
+            data-target="#navbar"
+            data-toggle="collapse"
+            type="button"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar Params: Visibility based on authentication  -->
+    <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" href="/" id="home"> Home </a>
+            <a class="nav-item nav-link" href="/logout" id="logout"> Log Out </a>
+            {% else %}
+            <a class="nav-item nav-link" href="/signup" id="signup"> Sign Up </a>
+            <a class="nav-item nav-link" href="/login" id="login"> Login </a>
+            {% endif %}
         </div>
-    </nav>
+    </div>
+</nav>
+
 <!--Success/Error Messages Displaying -->
 <!-- Displays messages flashed by the Flask backend -->
-   {% with messages = get_flashed_messages(with_categories =true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {%endfor%}
-    {%endif%}
-    {%endwith%}
+{% with messages = get_flashed_messages(with_categories =true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
+
 <!--Main Content Container: -->
 <!-- Content defined in child templates will be inserted here -->
-    <div class = "container">
-        {% block content%}
-        {% endblock %}
-    </div>
+<div class="container">
+    {% block content%}
+    {% endblock %}
+</div>
 
 <!-- JavaScript Libraries -->
 <!-- Bootstrap and its dependencies (jQuery and Popper.js) for interactive components -->
 <!-- Author: Tech With Tim -->
 <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
+        crossorigin="anonymous"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+></script>
 <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
+        crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+></script>
 <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+        crossorigin="anonymous"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+></script>
+
+<!-- JavasScript Function -->
+<!-- Author: Tech With Tim -->
+<!-- Desc:
+Takes in a NoteID and sends a request to the '/delete-note' end point, passing in a stringified
+Note ID. Once it gets a response, it will reload the window to update the notes on screen,
+by redirecting to '/' or home.
+ -->
 {% block javascript %}
-    <script type="text/javascript">
-      function deleteNote(noteId) {
-  fetch("/delete-note", {
-    method: "POST",
-    body: JSON.stringify({ noteId: noteId }),
-  }).then((_res) => {
-    window.location.href = "/";
-  });
-  }
+<script type="text/javascript">
+    function deleteNote(noteId) {
+        fetch("/delete-note", {
+            method: "POST",
+            body: JSON.stringify({noteId: noteId}),
+        }).then((_res) => {
+            window.location.href = "/";
+        });
+    }
 </script>
 {% endblock %}
 </body>
