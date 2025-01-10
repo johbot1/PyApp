@@ -54,7 +54,6 @@ def signup():
 
         user = User.query.filter_by(email=email).first()
         #Input Validation
-        #TODO: Could this be shrunk into it's own function?
         if user:
             flash("Email Already Exists!", category="error")
         elif len(email) < 4:

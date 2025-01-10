@@ -36,4 +36,4 @@ class User(UserMixin, db.Model):
     password = db.Column(
         db.String(100),
         nullable=False)
-    notes = db.relationship("Note", backref="user", lazy="dynamic")
+    notes = db.relationship("Note")

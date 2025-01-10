@@ -11,5 +11,20 @@
 
 
 {%block content %}<!-- Any and all content specific to the Home page -->
-<h1> This is the HOME page</h1>
+<h1 align = "center"> Your Journal  </h1>
+<ul class = "list-group list-group-flush" id = "notes">
+    {% for note in user.notes %}
+    <li class = "list-group-item"> {{ note.data }} </li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    <label for="created_note"> Write your journal entry here: </label>
+    <textarea name = "Note" id = "created_note" class = "form-control"></textarea>
+    <br />
+    <!--Submit Button-->
+    <div align = center>
+        <button type = "submit" class = "btn btn-primary"> Add Entry </button>
+    </div>
+</form>
 {%endblock%}
