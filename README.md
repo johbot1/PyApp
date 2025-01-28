@@ -10,3 +10,4 @@ Flask-Login
 
 #How To Run:
 Simply download the files, and run it either in a Python IDE or the terminal. Everything should run locally.
+flask --app main.py run  
