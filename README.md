@@ -5,10 +5,9 @@ This was one of the hardest projects I've ever done, namely due to never creatin
 # Requirements:
 
 ### Python Version 3.9 or higher
-
-    To check if you have python installed run the following from any cli
-         ` python --version `
-    Otherwise, if you need to install or update Python, download it from:
+To check if you have python installed run the following from any cli
+         `python --version`
+Otherwise, if you need to install or update Python, download it from:
         https://www.python.org/downloads/
 
 ### Flask
