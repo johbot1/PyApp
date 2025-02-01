@@ -23,4 +23,4 @@ if __name__ == '__main__':
     # `debug=True` enables debug mode, which provides detailed error messages
     # and automatically reloads the server when code changes.
     # Change to 'debug=False' when deploying.
-    app.run(debug=False)
+    app.run(debug=True)

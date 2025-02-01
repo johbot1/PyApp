@@ -58,10 +58,10 @@ def signup():
     if request.method == "POST":
         # Retrieves inputs from the signup form
         # Local_name = request.form.get('input_name_in_html_sheet')
-        email = request.form.get('email_signup')
-        first_name = request.form.get('firstname_signup')
-        password1 = request.form.get('pass1_signup')
-        password2 = request.form.get('pass2_signup')
+        email = request.form.get('email_signup', '')
+        first_name = request.form.get('firstname_signup', '')
+        password1 = request.form.get('pass1_signup', '')
+        password2 = request.form.get('pass2_signup', '')
 
         # Input Validation
         # Creates a temporary user object as a query to ensure the email is not
@@ -91,5 +91,8 @@ def signup():
             login_user(user, remember=True)
             flash("Account Created Successfully!", category="success")
             return redirect(url_for('views.home'))
+        return render_template(
+            "signup.html", user=current_user, email=email, first_name=first_name
+        )
 
     return render_template("signup.html", user=current_user)  # Renders the signup page
