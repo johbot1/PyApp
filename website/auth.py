@@ -55,54 +55,56 @@ def logout():
 # it validates the input, then creates and adds a User object to the database
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if request.method == "POST":
-        # Retrieves inputs from the signup form
-        # Local_name = request.form.get('input_name_in_html_sheet')
-        email = request.form.get('email_signup', '')
-        first_name = request.form.get('firstname_signup', '')
-        password1 = request.form.get('pass1_signup', '')
-        password2 = request.form.get('pass2_signup', '')
+    if request.method == "GET":
+        return render_template("signup.html", user=current_user)  # Renders the signup page
 
-        # Input Validation
-        # Creates a temporary user object as a query to ensure the email is not
-        # currently already in use. Then checks name and password match before
-        # adding the user to the database.
-        user = User.query.filter_by(email=email).first()
+    # Retrieves inputs from the signup form
+    # Local_name = request.form.get('input_name_in_html_sheet')
+    email = request.form.get('email_signup', '')
+    first_name = request.form.get('firstname_signup', '')
+    password1 = request.form.get('pass1_signup', '')
+    password2 = request.form.get('pass2_signup', '')
+    print("Forms acquired!")
 
-        #Holding area for any errors
-        errors = []
-        if User.query.filter_by(email=email).first():
-            errors.append("Email already exists!")
-        if len(email) < 4:
-            errors.append("Email must be at least 4 characters long.")
-        if len(first_name) < 3:
-            errors.append("First Name must be at least 3 characters long.")
-        if password1 != password2:
-            errors.append("Your passwords don't match!")
-        if len(password1) < 7:
-            errors.append("Password must be at least 7 characters long.")
-            # If there are errors, display them all at once
-            if errors:
-                for error in errors:
-                    flash(error, category="error")
-                return render_template(
-                    "signup.html", user=current_user, email=email, first_name=first_name
-                )
-            else:
-                # Creates a new user with the parameters specified,
-                # Encrypts the password using werkzeug.security import
-                # Adds the new user, commits to database, and logs them in
-                new_user = User(
-                    email=email,
-                    username=first_name,
-                    password=generate_password_hash(password1, method='scrypt'))
-                db.session.add(new_user)
-                db.session.commit()
-                login_user(user, remember=True)
-                flash("Account Created Successfully!", category="success")
-                return redirect(url_for('views.home'))
-        return render_template(
-            "signup.html", user=current_user, email=email, first_name=first_name
-        )
+    # Input Validation
+    # Creates a temporary user object as a query to ensure the email is not
+    # currently already in use. Then checks name and password match before
+    # adding the user to the database.
+    user = User.query.filter_by(email=email).first()
+    print("Filter User created!")
 
-    return render_template("signup.html", user=current_user)  # Renders the signup page
+    #Holding area for any errors
+    errors = []
+    if User.query.filter_by(email=email).first():
+        errors.append("Email already exists!")
+    if len(email) < 4:
+        errors.append("Email must be at least 4 characters long.")
+    if len(first_name) < 3:
+        errors.append("First Name must be at least 3 characters long.")
+    if password1 != password2:
+        errors.append("Your passwords don't match!")
+    if len(password1) < 7:
+        errors.append("Password must be at least 7 characters long.")
+        # If there are errors, display them all at once
+        if errors:
+            for error in errors:
+                flash(error, category="error")
+            return render_template(
+                "signup.html", user=current_user, email=email, first_name=first_name
+            )
+        else:
+            # Creates a new user with the parameters specified,
+            # Encrypts the password using werkzeug.security import
+            # Adds the new user, commits to database, and logs them in
+            new_user = User(
+                email=email,
+                username=first_name,
+                password=generate_password_hash(password1, method='scrypt'))
+            db.session.add(new_user)
+            db.session.commit()
+            login_user(new_user, remember=True)
+            flash("Account Created Successfully!", category="success")
+            return redirect(url_for('views.home'))
+    return render_template(
+        "signup.html", user=current_user, email=email, first_name=first_name
+    )
