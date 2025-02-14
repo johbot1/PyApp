@@ -55,20 +55,20 @@
     </div>
 </nav>
 
-{#<!--Success/Error Messages Displaying -->#}
-{#<!-- Displays messages flashed by the Flask backend -->#}
-{#{% with messages = get_flashed_messages(with_categories =true) %}#}
-{#{% if messages %}#}
-{#{% for category, message in messages %}#}
-{#<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">#}
-{#    {{ message }}#}
-{#    <button aria-label="Close" class="close" data-dismiss="alert" type="button">#}
-{#        <span aria-hidden="true">&times;</span>#}
-{#    </button>#}
-{#</div>#}
-{#{%endfor%}#}
-{#{%endif%}#}
-{#{%endwith%}#}
+<!--Success/Error Messages Displaying -->
+<!-- Displays messages flashed by the Flask backend -->
+{% with messages = get_flashed_messages(with_categories =true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
 
 <!--Main Content Container: -->
 <!-- Content defined in child templates will be inserted here -->

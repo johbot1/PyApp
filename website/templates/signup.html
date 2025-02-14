@@ -17,17 +17,14 @@
     <h3 align="center"> Sign Up! </h3>
 
     <!-- Error Display Section -->
-{% with messages = get_flashed_messages(category_filter=["error"]) %}
-    {% if messages %}
-        <div class="alert alert-danger" role="alert">
-            <ul class="mb-0">
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
 {% endwith %}
+
 
 <form method="post">
     <!-- Email Input Field -->

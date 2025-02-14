@@ -29,6 +29,8 @@ def create_app():
     # Configure the app to use an SQLite database stored in the project directory
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
 
+    app.config["DEBUG"] = True
+
     # Initialize the SQLAlchemy database object with the Flask app
     db.init_app(app)
 
@@ -62,7 +64,6 @@ def create_app():
         return User.query.get(int(id))
 
     return app
-
 
 # Using OS.path, check to see if the DB exists.
 # If not, create it with the app argument as context,

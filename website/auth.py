@@ -21,7 +21,7 @@ auth = Blueprint('auth', __name__)
 # Gathers the input from the fields and compares it with a temporary user object.
 # It searches the database to ensure the account with the provided email exists,
 # then compares the passwords, giving visual feedback if either do not match.
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login', methods=['POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email_login')
@@ -49,14 +49,24 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
+@auth.route('/test')
+def test():
+    flash("This is a test message", category="error")
+    return render_template("signup.html")
+
 
 # Route: Signup
 # Handles account registration and User creation. Once information is gathered,
 # it validates the input, then creates and adds a User object to the database
+from flask_login import current_user
+
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if request.method == "GET":
-        return render_template("signup.html", user=current_user)  # Renders the signup page
+    if request.method == "POST":
+        # Your form handling logic
+        flash("Test message", category="error")
+
+    return render_template("signup.html", user=current_user)
 
     # Retrieves inputs from the signup form
     # Local_name = request.form.get('input_name_in_html_sheet')
@@ -106,5 +116,5 @@ def signup():
             flash("Account Created Successfully!", category="success")
             return redirect(url_for('views.home'))
     return render_template(
-        "signup.html", user=current_user, email=email, first_name=first_name
+        "signup.html", user=current_user, email=email, first_name=first_name, errors=errors
     )

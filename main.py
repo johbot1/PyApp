@@ -12,12 +12,12 @@ from website import create_app
 app = create_app()
 
 #FEEDBACK
-# Errors shouldn't be dismissable
-# Error for when pass don't match while signing up
-# Success message for account creation
-# Error when account is already created
-# Remove "GET" from auth login
-# Allow logins to work
+# [] Errors shouldn't be dismissible
+# [] Error for when pass don't match while signing up
+# [] Success message for account creation
+# [] Error when account is already created
+# [X] Remove "GET" from auth login
+# [] Allow logins to work
 
 
 if __name__ == '__main__':
