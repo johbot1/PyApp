@@ -34,9 +34,6 @@ def generate_name():
     if not first_gender:
         return jsonify({'error': 'Please select a gender.'}), 400
 
-    # Validation: Check if races are selected for both first and last names
-    if not first_races or not last_races:
-        return jsonify({'error': 'Please select races for both first and last names'}), 400
 
     # Validation: Check for multiple races
     message = ""
