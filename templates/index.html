@@ -51,21 +51,57 @@
         let generatedNames = [];
 
         // Event listener for the "Generate Name" button
-        document.getElementById('generate-button').addEventListener('click', function() {
+        document.getElementById('generate-button').addEventListener('click', function () {
+            console.log("Button clicked!"); // This will log every time the button is clicked
+
             // Get selected races for the first name
             const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value);
             // Get selected gender for the first name
-            const firstGender = document.querySelector('input[name="first-gender"]:checked').value;
+            const firstGenderInput = document.querySelector('input[name="first-gender"]:checked');
+            const firstGender = firstGenderInput ? firstGenderInput.value : '';
             // Get selected races for the last name
             const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
+
+            // Debugging logs
+            console.log("First Races Selected:", firstRaces);
+            console.log("First Gender Selected:", firstGender);
+            console.log("Last Races Selected:", lastRaces);
+
+            // If nothing is selected (no gender, no race), show this message
+            if (firstRaces.length === 0 && !firstGender && lastRaces.length === 0) {
+                document.getElementById('name-display').textContent = "Please configure your options before generating a name.";
+                console.log("Validation Failed: No selections made.");
+                return;
+            }
 
             // Ensure a gender is selected before making a request
             if (!firstGender) {
                 document.getElementById('name-display').textContent = "Please select a gender.";
+                console.log("Validation Failed: No gender selected.");
                 return;
             }
 
-            // Send a POST request to the Flask API
+            // If only one race is selected, set it for both first and last names and show message
+            if (firstRaces.length > 0 && lastRaces.length === 0) {
+                lastRaces.push(...firstRaces);  // Duplicate selection for last name
+                document.getElementById('name-display').textContent = "One race selected, using for both first and last name.";
+            }
+
+
+            // Ensure at least one race is selected for either first and last names
+            if (firstRaces.length === 0) {
+                document.getElementById('name-display').textContent = "Please select at least one race for the first name.";
+                console.log("Validation Failed: No first race selected.");
+                return;
+            }
+            if (lastRaces.length === 0) {
+                document.getElementById('name-display').textContent = "Please select at least one race for the last name.";
+                console.log("Validation Failed: No last race selected.");
+                return;
+            }
+
+            // If validation passes, proceed with API request
+            console.log("Validation Passed: Sending request...");
             fetch('/generate_name', {
                 method: 'POST',
                 headers: {
@@ -77,39 +113,36 @@
                     lastRaces: lastRaces
                 })
             })
-            .then(response => response.json()) // Parse the JSON response
-            .then(data => {
-                // Check if both first and last names are present in the response
-                if (data.firstName && data.lastName) {const fullName = `${data.firstName} ${data.lastName}`;
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => {
+                    if (data.firstName && data.lastName) {
+                        const fullName = `${data.firstName} ${data.lastName}`;
 
-                // Add new name to the beginning of the array
-                generatedNames.unshift(fullName);
+                        // Add the new name to the list (limit it to 15 names)
+                        generatedNames.unshift(fullName);
+                        if (generatedNames.length > 15) {
+                            generatedNames.pop(); // Remove the last name if the list is longer than 15
+                        }
 
-                // Keep only the last 15 names
-                if (generatedNames.length > 15) {
-                    generatedNames.pop();
-                }
-
-                // Update the main name display (show the latest name)
-                document.getElementById('name-display').textContent = fullName;
-
-                // Update the list of previously generated names
-                updateGeneratedNamesDisplay();
-            } else {
-                document.getElementById('name-display').textContent = data.error || "An error occurred.";
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('name-display').textContent = 'An error occurred.';
+                        // Update the display with the new name and the full list
+                        document.getElementById('name-display').textContent = fullName;
+                        updateGeneratedNamesDisplay();
+                    } else {
+                        document.getElementById('name-display').textContent = data.error || "An error occurred.";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('name-display').textContent = 'An error occurred.';
+                });
         });
-    });
 
     // Function to update the previously generated names display
     function updateGeneratedNamesDisplay() {
         const displayContainer = document.getElementById('generated-names-display');
         displayContainer.innerHTML = ""; // Clear previous list
 
+        // Add all generated names to the display
         generatedNames.forEach(name => {
             const nameElement = document.createElement("div");
             nameElement.textContent = name;
