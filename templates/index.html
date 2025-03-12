@@ -47,6 +47,9 @@
 
 
     <script>
+        //Array to store generated names (Limited to only the last 15)
+        let generatedNames = [];
+
         // Event listener for the "Generate Name" button
         document.getElementById('generate-button').addEventListener('click', function() {
             // Get selected races for the first name
@@ -55,6 +58,12 @@
             const firstGender = document.querySelector('input[name="first-gender"]:checked').value;
             // Get selected races for the last name
             const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
+
+            // Ensure a gender is selected before making a request
+            if (!firstGender) {
+                document.getElementById('name-display').textContent = "Please select a gender.";
+                return;
+            }
 
             // Send a POST request to the Flask API
             fetch('/generate_name', {
@@ -71,20 +80,42 @@
             .then(response => response.json()) // Parse the JSON response
             .then(data => {
                 // Check if both first and last names are present in the response
-                if (data.firstName && data.lastName) {
-                    // Display the generated name in the name-display div
-                    document.getElementById('name-display').textContent = data.firstName + " " + data.lastName;
-                } else {
-                    // Display an error message if names are missing
-                    document.getElementById('name-display').textContent = data.error;
+                if (data.firstName && data.lastName) {const fullName = `${data.firstName} ${data.lastName}`;
+
+                // Add new name to the beginning of the array
+                generatedNames.unshift(fullName);
+
+                // Keep only the last 15 names
+                if (generatedNames.length > 15) {
+                    generatedNames.pop();
                 }
-            })
-            .catch(error => {
-                // Handle any errors that occur during the fetch request
-                console.error('Error:', error);
-                document.getElementById('name-display').textContent = 'An error occurred.';
-            });
+
+                // Update the main name display (show the latest name)
+                document.getElementById('name-display').textContent = fullName;
+
+                // Update the list of previously generated names
+                updateGeneratedNamesDisplay();
+            } else {
+                document.getElementById('name-display').textContent = data.error || "An error occurred.";
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('name-display').textContent = 'An error occurred.';
         });
+    });
+
+    // Function to update the previously generated names display
+    function updateGeneratedNamesDisplay() {
+        const displayContainer = document.getElementById('generated-names-display');
+        displayContainer.innerHTML = ""; // Clear previous list
+
+        generatedNames.forEach(name => {
+            const nameElement = document.createElement("div");
+            nameElement.textContent = name;
+            displayContainer.appendChild(nameElement);
+        });
+    }
     </script>
 </body>
 </html>
