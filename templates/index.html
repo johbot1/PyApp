@@ -9,6 +9,7 @@
     <h1 id="title">D&D Name Generator</h1>
 
     <div id="name-display">Generated Name</div>
+    <div id="single-race-warning" style="display: none; color: lightcoral; font-size: 14px;"></div>
 
     <div id="generation-options">
         <div id="first-name-selection">
@@ -62,10 +63,13 @@
             // Get selected races for the last name
             const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
 
+            // Get the warning element
+            const raceWarning = document.getElementById('single-race-warning');
+
             // Debugging logs
-            console.log("First Races Selected:", firstRaces);
-            console.log("First Gender Selected:", firstGender);
-            console.log("Last Races Selected:", lastRaces);
+            {#console.log("First Races Selected:", firstRaces);#}
+            {#console.log("First Gender Selected:", firstGender);#}
+            {#console.log("Last Races Selected:", lastRaces);#}
 
             // If nothing is selected (no gender, no race), show this message
             if (firstRaces.length === 0 && !firstGender && lastRaces.length === 0) {
@@ -81,24 +85,17 @@
                 return;
             }
 
-            // If only one race is selected, set it for both first and last names and show message
-            if (firstRaces.length > 0 && lastRaces.length === 0) {
-                lastRaces.push(...firstRaces);  // Duplicate selection for last name
-                document.getElementById('name-display').textContent = "One race selected, using for both first and last name.";
+            // Ensure at least one race is selected
+            if (firstRaces.length === 1 && lastRaces.length === 0) {
+                raceWarning.textContent = "One race selected, using for both first and last name.";
+                raceWarning.style.display = "block";
+            } else if (lastRaces.length === 1 && firstRaces.length === 0) {
+                raceWarning.textContent = "One race selected, using for both first and last name.";
+                raceWarning.style.display = "block";
+            } else {
+                raceWarning.style.display = "none"; // Hide if multiple races are selected
             }
 
-
-            // Ensure at least one race is selected for either first and last names
-            if (firstRaces.length === 0) {
-                document.getElementById('name-display').textContent = "Please select at least one race for the first name.";
-                console.log("Validation Failed: No first race selected.");
-                return;
-            }
-            if (lastRaces.length === 0) {
-                document.getElementById('name-display').textContent = "Please select at least one race for the last name.";
-                console.log("Validation Failed: No last race selected.");
-                return;
-            }
 
             // If validation passes, proceed with API request
             console.log("Validation Passed: Sending request...");
