@@ -30,7 +30,7 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin-top: 30px;
     padding: 20px;
@@ -52,7 +52,7 @@ body {
 /* Center and space out the previously generated names section */
 #generated-names-container {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 #generated-names-label {
@@ -61,13 +61,25 @@ body {
 }
 
 #generated-names-display {
-    margin-top: 10px;
-    padding: 15px;
-    min-height: 50px;
-    width: 50%;
-    background-color: white;
-    border: 1px solid black;
-    display: inline-block;
-    border-radius: 8px;
+    height: 200px; /* Fixed max height */
+    overflow-y: auto;  /* Scroll only when content overflows */
+    border: 1px solid #ccc;
+    padding: 8px;
+    background: #f9f9f9;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
+.generated-name-item {
+    padding: 4px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.generated-name-item:last-child {
+    border-bottom: none;
+}
