@@ -35,3 +35,10 @@ Use pip to install the required Flask libraries, by running the following from a
     `pip list | grep Flask`
 7) Finally, run the following command and navigate to the listed address on a web browser:
     `python3 main.py`
+
+
+# Sources:
+## Naming
+Human Last Names sourced from the following GitHub: https://gist.github.com/craigh411/19a4479b289ae6c3f6edb95152214efc
+Human Female Names soucred from the following GitHub: https://github.com/stdlib-js/datasets-female-first-names-en?tab=readme-ov-file
+Human Male names sourced from the following GitHub: https://github.com/stdlib-js/datasets-male-first-names-en
