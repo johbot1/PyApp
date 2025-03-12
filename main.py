@@ -16,6 +16,7 @@ def index():
     """Renders the index.html template."""
     return render_template('index.html')
 
+
 # Route for generating a name
 @app.route('/generate_name', methods=['POST'])
 def generate_name():
@@ -25,9 +26,30 @@ def generate_name():
     first_gender = data.get('firstGender')
     last_races = data.get('lastRaces', [])
 
-    # Check if races are selected for both first and last names
+    # Validation: Check if any options are selected
+    if not first_races and not last_races and not first_gender:
+        return jsonify({'error': 'Please set your options below to get a name'}), 400
+
+    # Validation: Check if gender is selected
+    if not first_gender:
+        return jsonify({'error': 'Please select a gender.'}), 400
+
+    # Validation: Check if races are selected for both first and last names
     if not first_races or not last_races:
         return jsonify({'error': 'Please select races for both first and last names'}), 400
+
+    # Validation: Check for multiple races
+    message = ""
+    if len(first_races) > 1 or len(last_races) > 1:
+        message = "Selecting more than one race will randomize between the two."
+
+    # Handling cases with a single race selected for first or last name
+    if len(first_races) == 1 and not last_races:
+        message += " Only one race selected for first name. Using selected race for the last name."
+        last_races = first_races
+    elif len(last_races) == 1 and not first_races:
+        message += " Only one race selected for last name. Using selected race for the first name."
+        first_races = last_races
 
     # Select a random race for the first name
     first_race = random.choice(first_races)
@@ -44,8 +66,9 @@ def generate_name():
     # Select a random last name
     last_name = random.choice(last_names['last'])
 
-    # Return the generated first and last names as JSON
-    return jsonify({'firstName': first_name, 'lastName': last_name})
+    # Return the generated first and last names along with the message
+    return jsonify({'firstName': first_name, 'lastName': last_name, 'message': message})
+
 
 if __name__ == '__main__':
     # Run the Flask app in debug mode
