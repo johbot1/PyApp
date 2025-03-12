@@ -1,91 +1,73 @@
-/* Body Styling */
+/* General Page Styling */
 body {
     background-color: #a3cdfa;
-    /* Light blue background */
     font-family: sans-serif;
-    /* Use sans-serif font */
     display: flex;
-    /* Use flexbox for layout */
     flex-direction: column;
-    /* Arrange items in a column */
     align-items: center;
-    /* Center items horizontally */
     justify-content: center;
-    /* Center items vertically */
     min-height: 100vh;
-    /* Set minimum height to viewport height */
     margin: 0;
-    /* Remove default margin */
+}
+/* Big ol' title */
+#title {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 /* Name Display Styling */
 #name-display {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-/* Generation Options Container Styling */
+/* Increase spacing between elements */
 #generation-options {
     display: flex;
-    /* Use flexbox for layout */
     flex-direction: row;
-    /* Arrange items in a row */
     align-items: flex-start;
-    /* Align items to the top */
-    justify-content: space-between;
-    /* Space out items horizontally */
-    margin-top: 20px;
-    width: 80%;
-    /* Limit width to 80% */
+    justify-content: space-around;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 30px;
+    padding: 20px;
 }
 
-/* First Name Parameters Styling */
-#first-name-params {
-    display: flex;
-    /* Use flexbox for layout */
-    flex-direction: column;
-    /* Arrange items in a column */
-    align-items: flex-start;
-    /* Align items to the top */
-    text-align: left;
-    /* Align text to the left */
+/* Make sure first and last name sections have space */
+#first-name-selection, #last-name-params {
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Last Name Parameters Styling */
-#last-name-params {
-    display: flex;
-    /* Use flexbox for layout */
-    flex-direction: column;
-    /* Arrange items in a column */
-    align-items: flex-start;
-    /* Align items to the top */
-    text-align: left;
-    /* Align text to the left */
-}
-
-/* First Race Selection Styling */
-#first-race-selection {
-    text-align: left;
-    /* Align text to the left */
-    margin-bottom: 10px;
-}
-
-/* Generated Names Display Styling */
-#generated-names-display {
-    text-align: center;
-    /* Center text */
-    margin-bottom: 10px;
-}
-
-/* Last Race Selection Styling */
-#last-race-selection {
-    text-align: left;
-    /* Align text to the left */
-    margin-bottom: 10px;
-}
-
-/* Generate Button Styling */
+/* Space out the generate button */
 #generate-button {
-    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
 }
+
+/* Center and space out the previously generated names section */
+#generated-names-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#generated-names-label {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#generated-names-display {
+    margin-top: 10px;
+    padding: 15px;
+    min-height: 50px;
+    width: 50%;
+    background-color: white;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 8px;
+}
+

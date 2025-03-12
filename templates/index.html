@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- Big ol' title -->
+    <h1 id="title">D&D Name Generator</h1>
+
     <div id="name-display">Generated Name</div>
 
     <div id="generation-options">
@@ -35,6 +38,12 @@
             </div>
         </div>
     </div>
+
+    <div id="generated-names-container">
+    <span id="generated-names-label">Previously Generated Names:</span>
+    <div id="generated-names-display"></div>
+    </div>
+
 
 
     <script>
