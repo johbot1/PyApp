@@ -24,7 +24,7 @@
 #### 3.1 Development: ✅
 - [✅] 3.1.1 Improve the HTML/CSS of the web page for a more visually appealing and user-friendly interface.
 - [✅] 3.1.2 Add error handling (e.g., display a message if no races are selected).
-#### Testing: ✅
+#### 3.2 Testing: ✅
 - [✅] 3.2.1 Test the app on different browsers and screen sizes.
 - [✅] 3.2.2 Verify that the error handling works as expected.
 
