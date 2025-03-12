@@ -1,85 +1,88 @@
 /* General Page Styling */
 body {
-    background-color: #a3cdfa;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
+    background-color: #a3cdfa; /* Light blue background */
+    font-family: sans-serif; /* Everyone uses a sans-serif font */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Arrange the items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    min-height: 100vh; /* Set minimum height to viewport height */
+    margin: 0; /* Remove default margin */
 }
+
 /* Big ol' title */
 #title {
-    font-size: 3em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 3em; /* Set font size to 3 */
+    font-weight: bold; /* Make font bold */
+    text-align: center; /* Center text horizontally */
+    margin-bottom: 30px; /* Add bottom margin */
 }
 
 /* Name Display Styling */
 #name-display {
-    font-size: 2em;
-    margin-bottom: 30px;
-    text-align: center;
+    font-size: 2em; /* Set font size to 2em */
+    margin-bottom: 30px; /* Add bottom margin */
+    text-align: center; /* Center text horizontally */
 }
 
 /* Increase spacing between elements */
 #generation-options {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 30px;
-    padding: 20px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-around; /* Space items evenly */
+    width: 100%; /* Set width to 100% of parent */
+    max-width: 1200px; /* Set maximum width */
+    margin-top: 30px; /* Add top margin */
+    padding: 20px; /* Add padding */
 }
 
 /* Make sure first and last name sections have space */
-#first-name-selection, #last-name-params {
-    padding: 20px;
-    border-radius: 10px;
+#first-name-selection,
+#last-name-params {
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Round the corners */
 }
 
 /* Space out the generate button */
 #generate-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.2em;
+    margin-top: 20px; /* Add top margin */
+    padding: 10px 20px; /* Add padding */
+    font-size: 1.2em; /* Set font size */
 }
 
 /* Center and space out the previously generated names section */
 #generated-names-container {
-    text-align: center;
-    margin-top: 10px;
+    text-align: center; /* Center text horizontally */
+    margin-top: 10px; /* Add top margin */
 }
 
 #generated-names-label {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.5em; /* Set font size to 1.5em */
+    font-weight: bold; /* Make font bold */
 }
 
 #generated-names-display {
-    height: 200px; /* Fixed max height */
+    height: 200px; /* Fixed max height so the stupid thing doesn't push everything UP */
     overflow-y: auto;  /* Scroll only when content overflows */
-    border: 1px solid #ccc;
-    padding: 8px;
-    background: #f9f9f9;
-    width: 100%;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #526780; /* Add border */
+    padding: 8px; /* Add padding */
+    background: #dce8fa; /* Light gray background */
+    width: 100%; /* Full width of container */
+    border-radius: 5px; /* Rounded corners */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange items in a column */
 }
 
 .generated-name-item {
-    padding: 4px;
-    border-bottom: 1px solid #ddd;
+    padding: 4px; /* Add padding */
+    border-bottom: 1px solid #526780; /* Add bottom border */
     white-space: nowrap; /* Prevents text wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Ellipsis for overflow */
 }
 
 .generated-name-item:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Remove bottom border for last item */
 }
+
