@@ -5,34 +5,47 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div id="name-display"></div>
+    <div id="name-display">Generated Name</div>
 
     <div id="generation-options">
-        <div id="race-gender-container">
-            <div id="race-selection">
-                <h2>Select Race(s):</h2>
-                <label><input type="checkbox" name="race" value="human"> Human</label><br>
-                <label><input type="checkbox" name="race" value="elf"> Elf</label><br>
-                <label><input type="checkbox" name="race" value="dwarf"> Dwarf</label><br>
+        <div id="first-name-selection">
+            <h2>First Name Options:</h2>
+            <div id="first-race-selection">
+                <h3>Select Race(s):</h3>
+                <label><input type="checkbox" name="first-race" value="human"> Human</label><br>
+                <label><input type="checkbox" name="first-race" value="elf"> Elf</label><br>
+                <label><input type="checkbox" name="first-race" value="dwarf"> Dwarf</label><br>
             </div>
-
-            <div id="gender-selection">
-                <h2>Select Gender:</h2>
-                <label><input type="radio" name="gender" value="male"> Male</label><br>
-                <label><input type="radio" name="gender" value="female"> Female</label><br>
+            <div id="first-gender-selection">
+                <h3>Select Gender:</h3>
+                <label><input type="radio" name="first-gender" value="male"> Male</label><br>
+                <label><input type="radio" name="first-gender" value="female"> Female</label><br>
             </div>
         </div>
 
-        <button id="generate-button">Generate Name</button>
+        <button id="generate-button">Generate Name!</button>
+
+        <div id="last-name-params">
+            <h2>Last Name Options:</h2>
+            <div id="last-race-selection">
+                <h3>Select Race(s):</h3>
+                <label><input type="checkbox" name="last-race" value="human"> Human</label><br>
+                <label><input type="checkbox" name="last-race" value="elf"> Elf</label><br>
+                <label><input type="checkbox" name="last-race" value="dwarf"> Dwarf</label><br>
+            </div>
+        </div>
     </div>
+
 
     <script>
         // Event listener for the "Generate Name" button
         document.getElementById('generate-button').addEventListener('click', function() {
-            // Gets the selected races from checkboxes
-            const races = Array.from(document.querySelectorAll('input[name="race"]:checked')).map(el => el.value);
-            // Gets the selected gender from radio buttons
-            const gender = document.querySelector('input[name="gender"]:checked').value;
+            // Get selected races for the first name
+            const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value);
+            // Get selected gender for the first name
+            const firstGender = document.querySelector('input[name="first-gender"]:checked').value;
+            // Get selected races for the last name
+            const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
 
             // Send a POST request to the Flask API
             fetch('/generate_name', {
@@ -40,7 +53,11 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ races: races, gender: gender })
+                body: JSON.stringify({
+                    firstRaces: firstRaces,
+                    firstGender: firstGender,
+                    lastRaces: lastRaces
+                })
             })
             .then(response => response.json()) // Parse the JSON response
             .then(data => {

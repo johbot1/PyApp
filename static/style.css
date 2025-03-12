@@ -1,44 +1,91 @@
 /* Body Styling */
 body {
-    background-color: #a3cdfa; /* Light blue background */
-    font-family: sans-serif; /* Use sans-serif font */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    min-height: 100vh; /* Set minimum height to viewport height */
-    margin: 0; /* Remove default margin */
+    background-color: #a3cdfa;
+    /* Light blue background */
+    font-family: sans-serif;
+    /* Use sans-serif font */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Arrange items in a column */
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+    min-height: 100vh;
+    /* Set minimum height to viewport height */
+    margin: 0;
+    /* Remove default margin */
 }
 
 /* Name Display Styling */
 #name-display {
-    font-size: 2em; /* Large font size */
-    margin-bottom: 20px; /* Space below the name */
-    text-align: center; /* Center text */
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 /* Generation Options Container Styling */
 #generation-options {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange items in a column */
-    align-items: center; /* Center items horizontally */
-    margin-top: 20px; /* Space above the options */
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: row;
+    /* Arrange items in a row */
+    align-items: flex-start;
+    /* Align items to the top */
+    justify-content: space-between;
+    /* Space out items horizontally */
+    margin-top: 20px;
+    width: 80%;
+    /* Limit width to 80% */
 }
 
-/* Race and Gender Container Styling */
-#race-gender-container {
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: center; /* Center horizontally */
-    margin-bottom: 10px; /* Space below the container */
+/* First Name Parameters Styling */
+#first-name-params {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Arrange items in a column */
+    align-items: flex-start;
+    /* Align items to the top */
+    text-align: left;
+    /* Align text to the left */
 }
 
-/* Race Selection Styling */
-#race-selection, #gender-selection {
-    margin-right: 20px; /* Space between race and gender selections */
-    text-align: center; /* Center text */
+/* Last Name Parameters Styling */
+#last-name-params {
+    display: flex;
+    /* Use flexbox for layout */
+    flex-direction: column;
+    /* Arrange items in a column */
+    align-items: flex-start;
+    /* Align items to the top */
+    text-align: left;
+    /* Align text to the left */
+}
+
+/* First Race Selection Styling */
+#first-race-selection {
+    text-align: left;
+    /* Align text to the left */
+    margin-bottom: 10px;
+}
+
+/* Generated Names Display Styling */
+#generated-names-display {
+    text-align: center;
+    /* Center text */
+    margin-bottom: 10px;
+}
+
+/* Last Race Selection Styling */
+#last-race-selection {
+    text-align: left;
+    /* Align text to the left */
+    margin-bottom: 10px;
 }
 
 /* Generate Button Styling */
 #generate-button {
-    text-align: center; /* Center text */
+    text-align: center;
 }
