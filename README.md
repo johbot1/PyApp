@@ -22,7 +22,7 @@ Use pip to install the required Flask libraries, by running the following from a
     https://pip.pypa.io/en/stable/installation/
 
 # How To Run:
-1) Download the files here
+1) Download the files to a directory or to your desktop
 2) Navigate to the folder where you downloaded your files using the terminal / cmd prompt
 3) Setup your virtual environment
     Windows: `venv\Scripts\activate`
@@ -30,15 +30,16 @@ Use pip to install the required Flask libraries, by running the following from a
 4) If you don't have one setup, create one using the following:
     `python3 -m venv venv`
 5) Run the following to install the dependencies
-    `pip install flask flask-sqlalchemy flask-login`
+    `pip install flask`
 6) Verify flask is installed:
     `pip list | grep Flask`
 7) Finally, run the following command and navigate to the listed address on a web browser:
     `python3 main.py`
 
 
-# Sources:
-## Naming
-Human Last Names sourced from the following GitHub: https://gist.github.com/craigh411/19a4479b289ae6c3f6edb95152214efc
-Human Female Names soucred from the following GitHub: https://github.com/stdlib-js/datasets-female-first-names-en?tab=readme-ov-file
-Human Male names sourced from the following GitHub: https://github.com/stdlib-js/datasets-male-first-names-en
+## Sources:
+### Naming
+Human Last Names sourced from the following GitHub: https://gist.github.com/craigh411/19a4479b289ae6c3f6edb95152214efc  
+Human Female Names soucred from the following GitHub: https://github.com/stdlib-js/datasets-female-first-names-en?tab=readme-ov-file  
+Human Male names sourced from the following GitHub: https://github.com/stdlib-js/datasets-male-first-names-en  
+All other names were generated using an Ai, then imported as a JSON file in `PyApp/data/`
