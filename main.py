@@ -4,8 +4,6 @@ import random
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
-
-
 # Creates an instance of the Flask application.
 #   - __name__: A special variable that represents the name of the current module.
 #     It's used by Flask to determine the application's root path.
