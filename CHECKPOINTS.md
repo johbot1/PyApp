@@ -9,26 +9,25 @@
 - [✅] 1.2.2 Ensure the basic HTML form elements are displaying correctly in a browser.
 
 
-## 2. Core Name Generation Logic:  
+## 2. Core Name Generation Logic:  ✅ 
 #### 2.1 Development: ✅
 - [✅] 2.1.1 Implement a Python function that reads the selected race(s) and gender from the HTML form.
 - [✅] 2.1.2 Create a function that randomly selects a name from the appropriate JSON data.
 - [✅] 2.1.3 Integrate the name generation function with the Flask/FastAPI route that handles the "Generate" button click.
-#### 2.2 Testing:
-- [] 2.2.1 Test the name generation function with different race and gender selections.
-- [] 2.2.2 Verify that the generated names are being displayed on the web page.
-- [] 2.2.3Test that if multiple races are selected, that a name from one of the selected races is always generated.
+#### 2.2 Testing: ✅
+- [✅] 2.2.1 Test the name generation function with different race and gender selections.
+- [✅] 2.2.2 Verify that the generated names are being displayed on the web page.
+- [✅] 2.2.3 Test that if multiple races are selected, that a name from one of the selected races is always generated.
 
 
-## 3. User Interface Enhancements & Refinement:
-#### 3.1 Development:
+## 3. User Interface Enhancements & Refinement: ✅
+#### 3.1 Development: ✅
 - [✅] 3.1.1 Improve the HTML/CSS of the web page for a more visually appealing and user-friendly interface.
-- [] 3.1.2 Add error handling (e.g., display a message if no races are selected).
-- [] 3.1.3 Add the option to generate multiple names.
-#### Testing:
-- [] 3.2.1 Test the app on different browsers and screen sizes.
-- [] 3.2.2 Verify that the error handling works as expected.
-- [] 3.2.3 Test that multiple names are generated when that option is selected.
+- [✅] 3.1.2 Add error handling (e.g., display a message if no races are selected).
+#### Testing: ✅
+- [✅] 3.2.1 Test the app on different browsers and screen sizes.
+- [✅] 3.2.2 Verify that the error handling works as expected.
+
     
 
 ## 4.Feedback:
