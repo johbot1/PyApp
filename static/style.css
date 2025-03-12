@@ -1,38 +1,44 @@
+/* Body Styling */
 body {
-    background-color: #a3cdfa;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
+    background-color: #a3cdfa; /* Light blue background */
+    font-family: sans-serif; /* Use sans-serif font */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    min-height: 100vh; /* Set minimum height to viewport height */
+    margin: 0; /* Remove default margin */
 }
 
+/* Name Display Styling */
 #name-display {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 2em; /* Large font size */
+    margin-bottom: 20px; /* Space below the name */
+    text-align: center; /* Center text */
 }
 
+/* Generation Options Container Styling */
 #generation-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+    margin-top: 20px; /* Space above the options */
 }
 
+/* Race and Gender Container Styling */
 #race-gender-container {
-    display: flex; /* Flexbox for horizontal layout */
+    display: flex; /* Use flexbox for horizontal layout */
     justify-content: center; /* Center horizontally */
-    margin-bottom: 10px; /* Space between the row and the button */
+    margin-bottom: 10px; /* Space below the container */
 }
 
+/* Race Selection Styling */
 #race-selection, #gender-selection {
     margin-right: 20px; /* Space between race and gender selections */
-    text-align: center;
+    text-align: center; /* Center text */
 }
 
+/* Generate Button Styling */
 #generate-button {
-    text-align: center;
+    text-align: center; /* Center text */
 }

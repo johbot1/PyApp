@@ -1,16 +1,16 @@
 # Checkpoints
-## 1. Data Gathering & Setup:  
-#### 1.1 Development:
+## 1. Data Gathering & Setup: ✅ 
+#### 1.1 Development: ✅
 - [✅] 1.1.2 Create JSON files (or CSV/SQLite) for at least 3 common D&D races (e.g., Human, Elf, Dwarf), with male and female name lists. 
 - [✅] 1.1.3 Set up a basic Flask or FastAPI project.
 - [✅] 1.1.4 Create a simple HTML template with checkboxes for race selection and radio buttons for gender selection.  
-#### 1.2 Testing:
-- [] 1.2.1 Verify that the JSON files are correctly formatted and accessible by Python code. 
-- [] 1.2.2 Ensure the basic HTML form elements are displaying correctly in a browser.
+#### 1.2 Testing: ✅
+- [✅] 1.2.1 Verify that the JSON files are correctly formatted and accessible by Python code. 
+- [✅] 1.2.2 Ensure the basic HTML form elements are displaying correctly in a browser.
 
 
 ## 2. Core Name Generation Logic:  
-#### 2.1 Development:
+#### 2.1 Development: ✅
 - [✅] 2.1.1 Implement a Python function that reads the selected race(s) and gender from the HTML form.
 - [✅] 2.1.2 Create a function that randomly selects a name from the appropriate JSON data.
 - [✅] 2.1.3 Integrate the name generation function with the Flask/FastAPI route that handles the "Generate" button click.

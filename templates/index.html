@@ -27,10 +27,14 @@
     </div>
 
     <script>
+        // Event listener for the "Generate Name" button
         document.getElementById('generate-button').addEventListener('click', function() {
+            // Gets the selected races from checkboxes
             const races = Array.from(document.querySelectorAll('input[name="race"]:checked')).map(el => el.value);
+            // Gets the selected gender from radio buttons
             const gender = document.querySelector('input[name="gender"]:checked').value;
 
+            // Send a POST request to the Flask API
             fetch('/generate_name', {
                 method: 'POST',
                 headers: {
@@ -38,15 +42,19 @@
                 },
                 body: JSON.stringify({ races: races, gender: gender })
             })
-            .then(response => response.json())
+            .then(response => response.json()) // Parse the JSON response
             .then(data => {
+                // Check if both first and last names are present in the response
                 if (data.firstName && data.lastName) {
+                    // Display the generated name in the name-display div
                     document.getElementById('name-display').textContent = data.firstName + " " + data.lastName;
                 } else {
+                    // Display an error message if names are missing
                     document.getElementById('name-display').textContent = data.error;
                 }
             })
             .catch(error => {
+                // Handle any errors that occur during the fetch request
                 console.error('Error:', error);
                 document.getElementById('name-display').textContent = 'An error occurred.';
             });
