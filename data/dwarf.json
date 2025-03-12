@@ -1,0 +1,44 @@
+{
+  "male": [
+    "Baern", "Borin", "Dagmir", "Eberk", "Fargrim", "Garik", "Hagrum", "Ivar", "Jorlan", "Kargan",
+    "Lodrin", "Magnar", "Norik", "Orsik", "Pavrik", "Quenrik", "Rurik", "Storn", "Thrain", "Ulfgar",
+    "Varrik", "Wulfric", "Xandren", "Yorgrim", "Zorin", "Anvar", "Bromm", "Durin", "Eitri", "Flint",
+    "Gralmir", "Helgar", "Ingvar", "Jorik", "Keldan", "Luthar", "Mordrin", "Nalthor", "Oskar", "Prodan",
+    "Quenthar", "Ragnok", "Svenrik", "Thrainor", "Uldin", "Vekar", "Worik", "Xorn", "Ymir", "Zenthar",
+    "Argrim", "Beldrak", "Drorik", "Erdan", "Fenrik", "Garrik", "Haldor", "Ironbrow", "Jurik", "Korrin",
+    "Lazrik", "Mogrim", "Nedrak", "Olthar", "Pragmir", "Quorlak", "Rulgar", "Stoutfist", "Thorgar", "Ulfrin",
+    "Vortan", "Wargan", "Xarn", "Yeldar", "Zelgrim", "Aldrek", "Brumlin", "Darrak", "Egrin", "Faldor",
+    "Gimrik", "Hjorn", "Ildan", "Jorunn", "Kazrik", "Lorkin", "Molgar", "Norgrim", "Ogmund", "Perrin",
+    "Quorik", "Rurikson", "Skorn", "Thrainson", "Uthric", "Vargan", "Wulfar", "Xandor", "Yrgrim", "Zorik",
+    "Arthok", "Bramdir", "Dulgarn", "Ekhart", "Frodrik", "Grendrik", "Halvik", "Ingmar", "Joldir", "Kragmir",
+    "Lorik", "Marthok", "Nargol", "Odrin", "Pugnar", "Quorin", "Rhovik", "Stalrik", "Torgath", "Urek",
+    "Voldrik", "Wulrik", "Xemir", "Yorik", "Zolgrin", "Azrik", "Borrim", "Durnir", "Eryk", "Frolgar",
+    "Grathin", "Hrothgar", "Isarn", "Jorvald", "Kragg", "Luthrik", "Magnarok", "Nothrik", "Oghrin", "Pavrikson",
+    "Quorrik", "Rorik", "Stormbeard", "Thondin", "Uzgor", "Varnrik", "Wulrikson", "Xadren", "Yornir", "Zothrik"
+  ],
+  "female": [
+    "Ardella", "Brynna", "Dagnal", "Edris", "Fenra", "Gilda", "Helga", "Ingra", "Janna", "Kelda",
+    "Lorana", "Marda", "Norla", "Orla", "Pavria", "Qilda", "Ragna", "Sigrun", "Thalga", "Uldra",
+    "Valga", "Wynna", "Xelda", "Ylva", "Zorina", "Amara", "Borna", "Dagny", "Eldrin", "Freja",
+    "Grelda", "Hanna", "Ilsa", "Jorva", "Katla", "Linnea", "Morgna", "Nessa", "Olga", "Prynn",
+    "Qendra", "Ralda", "Svara", "Thylda", "Ulsa", "Vigdis", "Wanda", "Xelma", "Ysolde", "Zarva",
+    "Aldara", "Britha", "Dorna", "Edra", "Fayna", "Gudrun", "Hedra", "Istrid", "Jorra", "Karla",
+    "Luthra", "Mira", "Nerla", "Olla", "Parna", "Quilda", "Ragna", "Svenna", "Tilda", "Ulrika",
+    "Vara", "Wilma", "Xendra", "Ygritte", "Zilda", "Anika", "Belga", "Drema", "Edrika", "Fraya",
+    "Gytha", "Hrella", "Ilyra", "Jolga", "Kresta", "Ludra", "Malga", "Norna", "Othra", "Plyna",
+    "Quella", "Raisa", "Sithra", "Thyra", "Unga", "Viera", "Wrynn", "Xilda", "Ylvara", "Zanra",
+    "Aelga", "Brunhild", "Drisna", "Elna", "Fjola", "Gorna", "Hildra", "Irsa", "Jorhild", "Katilda",
+    "Lorna", "Myska", "Nyssa", "Ortha", "Priska", "Quona", "Rylma", "Svana", "Thelga", "Uldara",
+    "Varka", "Wenda", "Xelna", "Yrsa", "Zelva", "Agneth", "Berna", "Drosa", "Eithra", "Fjelda",
+    "Grendla", "Hestia", "Idra", "Jutha", "Karna", "Liora", "Mardis", "Nyrla", "Othila", "Pylna",
+    "Quenla", "Runhild", "Sylda", "Trilda", "Ulsna", "Vidra", "Walga", "Xolga", "Ydra", "Zorya"
+  ],
+  "last": [
+    "Battlehammer", "Bronzebeard", "Deepdelver", "Emberforge", "Flameheart", "Goldfinder", "Grimaxe", "Hearthstone", "Ironfist",
+    "Jaggedpeak", "Kegbreaker", "Longbeard", "Mithrilborn", "Oathkeeper", "Redmane", "Runecarver", "Silvervein", "Stonebreaker",
+    "Thunderhammer", "Underforge", "Vaultwarden", "Warbraid", "Winterbeard", "Axebringer", "Barreldrinker", "Blackanvil",
+    "Darkdelver", "Earthshaker", "Fireforge", "Frostbeard", "Granitehand", "Hammerdeep", "Helmcrest", "Irondelver", "Kindaxe",
+    "Mountainheart", "Oregrinder", "Rockfall", "Shadowmantle", "Steelforge", "Trollbane", "Unyielding", "Warbeard", "Amberhand",
+    "Boulderfist", "Coppervein", "Dragonsbane", "Duneforge", "Emberstrike", "Fireborn", "Goldbraid", "Hammerfall", "Highcliff"
+  ]
+}

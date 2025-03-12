@@ -1,0 +1,42 @@
+{
+  "male": [
+    "Aelrindel", "Baelion", "Caelum", "Daerion", "Eldrin", "Faelar", "Galmir", "Haldir", "Iliphar", "Jaelith",
+    "Kaerwyn", "Laethan", "Maethor", "Naerion", "Oropher", "Paeris", "Quelion", "Rhovan", "Saerion", "Taenor",
+    "Uthiel", "Vaeril", "Wyeth", "Xalvian", "Yelthas", "Zalathar", "Aetherion", "Berenor", "Cymarin", "Delsaran",
+    "Elandor", "Felarion", "Gaerion", "Haelith", "Isilion", "Jhaeros", "Kaelthas", "Lorien", "Mithras", "Nimrion",
+    "Otharion", "Phaendar", "Quenthel", "Rhaegor", "Selthas", "Tahlion", "Ulthian", "Vaelith", "Wyndel", "Xenion",
+    "Yltharin", "Zyreth", "Aenarion", "Belthir", "Caelir", "Daevion", "Eltharion", "Faydrin", "Galeth", "Hatharion",
+    "Ilmion", "Joramir", "Kierion", "Lathalor", "Maeron", "Nolthar", "Owyn", "Phyron", "Quarion", "Rilthar", "Sylion",
+    "Tirian", "Ultheris", "Vanyar", "Wyethion", "Xaelion", "Ytharian", "Zaelir", "Aenwyn", "Baelor", "Cilthas",
+    "Dravon", "Eryndor", "Faelion", "Galadon", "Heryn", "Ithoril", "Jaelor", "Kharion", "Lorien", "Mythas", "Nyvaris",
+    "Othirion", "Paelion", "Queneth", "Rhyel", "Saelwyn", "Taelor", "Urvion", "Veldrin", "Weylar", "Xalithar", "Yndoril",
+    "Zalvior", "Aerendil", "Brithion", "Calen", "Deyron", "Erestor", "Firanor", "Gwaeron", "Halion", "Ithildin", "Jandor",
+    "Kaeledor", "Lorienas", "Maelion", "Nithrandir", "Orelion", "Phaelon", "Quendir", "Raedon", "Sildarion", "Thandor",
+    "Ulmeris", "Valandor", "Wrenath", "Xarion", "Ylendir", "Zirion", "Aegis", "Brithil", "Celadorn", "Dhaerow", "Elion",
+    "Faerion", "Glorion", "Haldareth", "Isenor", "Jorelion", "Kaelis", "Lorendel", "Marthir", "Nytherion", "Olivan",
+    "Phaedron", "Quinthor", "Rylaris", "Silion", "Thaeorn", "Ulvior", "Veylor", "Wystan", "Xelthor", "Yvain", "Zelior"
+  ],
+  "female": [
+    "Aerilaya", "Baelith", "Caelwen", "Daenara", "Elveria", "Faelinn", "Galadrielle", "Helyanwe", "Ithilwen", "Jaenelle",
+    "Kaelisra", "Laeveth", "Maeril", "Nymari", "Olivianne", "Paelith", "Quenara", "Rhaewyn", "Selith", "Taenara",
+    "Ulyssia", "Vaelith", "Wynna", "Xilfina", "Yeliss", "Zalindra", "Aeris", "Belyth", "Celyne", "Deylanna",
+    "Elyndra", "Feywen", "Gaelira", "Hathariel", "Ilmaria", "Jhaenya", "Kaethwen", "Lorienna", "Mithwen", "Nithara",
+    "Othiel", "Phaelynn", "Quelith", "Rilwynn", "Sylwen", "Thaylia", "Ulliwyn", "Vanyria", "Wynfara", "Xanari",
+    "Ythilia", "Zyrela", "Aeloria", "Belith", "Celadria", "Daelynn", "Elithiel", "Feyara", "Gwendari", "Helyssia",
+    "Iriel", "Jorra", "Karelia", "Lelith", "Melwyn", "Naeryn", "Othara", "Phaena", "Quendra", "Raelith", "Sianwyn",
+    "Talithia", "Ultheris", "Vareth", "Weyrith", "Xilthia", "Ylis", "Zanari", "Aelwen", "Braelynn", "Caelrith",
+    "Dhaevryn", "Eowen", "Faenaria", "Galaeth", "Helyth", "Ismira", "Jalith", "Karith", "Lythari", "Miriel",
+    "Nethira", "Ophara", "Phaylen", "Quillith", "Rheya", "Selthwen", "Taryndis", "Ulyria", "Vaethwen", "Wrynna",
+    "Xalyndra", "Ysaria", "Zylthiel", "Aeneth", "Briala", "Celwen", "Dhaenara", "Eliriel", "Faelyth", "Gwyndolyn",
+    "Haelith", "Ilithwen", "Jhaesara", "Kaeryn", "Leowen", "Maeryn", "Niviel", "Olweth", "Phaelia", "Quenith",
+    "Ravella", "Sialeth", "Thalira", "Ulthara", "Veylith", "Wynari", "Xirith", "Yelara", "Zyphira"
+  ],
+  "last": [
+    "Amastacia", "Brightwind", "Caelthir", "Dawnwhisper", "Elunore", "Faerondel", "Galathil", "Helyawen", "Ilmaris",
+    "Jalithiel", "Kelethar", "Loriennith", "Moonshadow", "Nymarin", "Ostarion", "Paeristhil", "Quenorin", "Rhovanion",
+    "Sylvaris", "Thalorind", "Uthwendel", "Vanyarion", "Windsong", "Xanphir", "Yvrenna", "Zylvaris", "Aelthorin",
+    "Briarieth", "Celvanna", "Dhaerion", "Eledhwen", "Feywhisper", "Galaethis", "Haerlan", "Ithryndel", "Jaelorin",
+    "Kaelwind", "Lunaraith", "Mirathil", "Nitharian", "Olyvaris", "Phaiendor", "Quelthirion", "Ralorien", "Sylweneth",
+    "Tirandir", "Ulvareth", "Valathien", "Wystaniel", "Xyltharin", "Ytheris", "Zanarieth"
+  ]
+}
