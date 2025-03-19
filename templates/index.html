@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>D&D Name Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -59,7 +59,7 @@
             const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value); // Gets first name races
             // Get selected gender for the first name
             const firstGenderInput = document.querySelector('input[name="first-gender"]:checked'); // Gets gender input
-            const firstGender = firstGenderInput ? firstGenderInput.value : ''; // Gets gender value or empty string
+            const firstGender = firstGenderInput ? firstGenderInput.value : ''; // Gets gender value or allowed empty string
             // Get selected races for the last name
             const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value); // Gets last name races
 
