@@ -39,6 +39,6 @@ Use pip to install the required Flask libraries, by running the following from a
 ## Sources:
 ### Naming
 Human Last Names sourced from the following GitHub: https://gist.github.com/craigh411/19a4479b289ae6c3f6edb95152214efc  
-Human Female Names soucred from the following GitHub: https://github.com/stdlib-js/datasets-female-first-names-en?tab=readme-ov-file  
+Human Female Names sourced from the following GitHub: https://github.com/stdlib-js/datasets-female-first-names-en?tab=readme-ov-file  
 Human Male names sourced from the following GitHub: https://github.com/stdlib-js/datasets-male-first-names-en  
 All other names were generated using an Ai, then imported as a JSON file in `PyApp/data/`
