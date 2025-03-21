@@ -14,19 +14,40 @@ document.addEventListener("DOMContentLoaded", function () {
         // Get selected races for the last name
         const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
 
-        // Get the warning element
+        // Get the warning and error elements
         const raceWarning = document.getElementById('single-race-warning');
+        const firstRaceError = document.getElementById('first-race-error');
+        const firstGenderError = document.getElementById('first-gender-error');
+        const lastRaceError = document.getElementById('last-race-error');
+
+        // Clear previous errors
+        firstRaceError.style.display = "none";
+        firstGenderError.style.display = "none";
+        lastRaceError.style.display = "none";
+
+        let hasError = false;
 
         // Validation Checks
-        if (firstRaces.length === 0 && !firstGender && lastRaces.length === 0) {
-            document.getElementById('name-display').textContent = "Please select at least one Race and a Gender.";
-            console.log("Validation Failed: No selections made.");
-            return;
+        if (!firstGender) {
+            firstGenderError.textContent = "Please select a gender.";
+            firstGenderError.style.display = "inline";
+            hasError = true;
         }
 
-        if (!firstGender) {
-            document.getElementById('name-display').textContent = "Please select a gender.";
-            console.log("Validation Failed: No gender selected.");
+        if (firstRaces.length === 0) {
+            firstRaceError.textContent = "Please select at least one race.";
+            firstRaceError.style.display = "inline";
+            hasError = true;
+        }
+
+        if (lastRaces.length === 0) {
+            lastRaceError.textContent = "Please select at least one race.";
+            lastRaceError.style.display = "inline";
+            hasError = true;
+        }
+
+        if (hasError) {
+            console.log("Validation Failed: Missing selections.");
             return;
         }
 
