@@ -36,7 +36,7 @@
 - [] Don't add name into Previous Name UNTIL new name generated
 - [] Naming is more consistent and formatted for JSON
 - [] Remove debugging statements in Javascript
-- [✅] Break Javascript into a separate file
+- [] Break Javascript into a separate file
 
 ### Workflow:
     User selects race(s) and gender.
