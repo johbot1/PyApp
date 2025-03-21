@@ -38,9 +38,9 @@ def generate_name():
 
     # Validation: Check if any options are selected
     if not first_races and not last_races and not first_gender:
-        return jsonify({'error': 'Please set your options below to get a name'}), 400  # Returns error if no options
+        return jsonify({'error': 'Please select at least one Race and a Gender'}), 400  # Returns error if no options
 
-    # Validation: Check if gender is selected
+    # Validation: Check if gender is not selected
     if not first_gender:
         return jsonify({'error': 'Please select a gender.'}), 400  # Returns error if no gender
 
@@ -48,6 +48,10 @@ def generate_name():
     message = ""  # Initializes message string
     if len(first_races) > 1 or len(last_races) > 1:
         message = "Selecting more than one race will randomize between the two."  # Sets message for multiple races
+
+    # Validation: Check if any race is selected
+    if not first_races and not last_races:
+        return jsonify({'error': 'Please select at least one race to begin'}), 400  # Returns error if no options
 
     # Handling cases with a single race selected for first or last name
     if len(first_races) == 1 and not last_races:
