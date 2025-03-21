@@ -19,11 +19,13 @@
                 <label><input type="checkbox" name="first-race" value="human"> Human</label><br>
                 <label><input type="checkbox" name="first-race" value="elf"> Elf</label><br>
                 <label><input type="checkbox" name="first-race" value="dwarf"> Dwarf</label><br>
+                <span class="error-message" id="first-race-error" style="color: red; display: none;"></span>
             </div>
             <div id="first-gender-selection">
                 <h3>Select Gender:</h3>
                 <label><input type="radio" name="first-gender" value="male"> Male</label><br>
                 <label><input type="radio" name="first-gender" value="female"> Female</label><br>
+                <span class="error-message" id="first-gender-error" style="color: red; display: none;"></span>
             </div>
         </div>
 
@@ -36,16 +38,16 @@
                 <label><input type="checkbox" name="last-race" value="human"> Human</label><br>
                 <label><input type="checkbox" name="last-race" value="elf"> Elf</label><br>
                 <label><input type="checkbox" name="last-race" value="dwarf"> Dwarf</label><br>
+                <span class="error-message" id="last-race-error" style="color: red; display: none;"></span>
             </div>
         </div>
     </div>
 
     <div id="generated-names-container">
-    <span id="generated-names-label">Previously Generated Names:</span>
-    <div id="generated-names-display"></div>
+        <span id="generated-names-label">Previously Generated Names:</span>
+        <div id="generated-names-display"></div>
     </div>
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
