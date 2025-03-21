@@ -45,15 +45,13 @@
     <div id="generated-names-display"></div>
     </div>
 
-
-
     <script>
         //Array to store generated names (Limited to only the last 15)
         let generatedNames = [];
 
         // Event listener for the "Generate Name" button
         document.getElementById('generate-button').addEventListener('click', function () {
-            console.log("Button clicked!"); // This will log every time the button is clicked
+            {#console.log("Button clicked!"); // This will log every time the button is clicked#}
 
             // Get selected races for the first name
             const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value); // Gets first name races
