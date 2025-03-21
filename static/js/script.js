@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Validation Checks
         if (firstRaces.length === 0 && !firstGender && lastRaces.length === 0) {
-            document.getElementById('name-display').textContent = "Please configure your options before generating a name.";
+            document.getElementById('name-display').textContent = "Please select at least one Race and a Gender.";
             console.log("Validation Failed: No selections made.");
             return;
         }
