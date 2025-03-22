@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Array to store generated names (Limited to only the last 15)
     let generatedNames = [];
+    let currentName = ""; // Stores the most recently generated name to prevent premature additions
 
     // Event listener for the "Generate Name" button
     document.getElementById('generate-button').addEventListener('click', function () {
@@ -77,14 +78,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.firstName && data.lastName) {
                 const fullName = `${data.firstName} ${data.lastName}`;
 
-                // Add the new name to the list (limit it to 15 names)
-                generatedNames.unshift(fullName);
-                if (generatedNames.length > 15) {
-                    generatedNames.pop();
+                // Only add the previously generated name to the history if a new one is generated
+                if (currentName) {
+                    generatedNames.unshift(currentName); // Add previous name to history
+                    if (generatedNames.length > 15) {
+                        generatedNames.pop(); // Keep only the last 15 names
+                    }
                 }
 
-                // Update the display with the new name and the full list
+                // Update display and set currentName to the new one
                 document.getElementById('name-display').textContent = fullName;
+                currentName = fullName; // Store the latest name
                 updateGeneratedNamesDisplay();
             } else {
                 document.getElementById('name-display').textContent = data.error || "An error occurred.";
