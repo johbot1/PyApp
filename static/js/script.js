@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener for the "Generate Name" button
     document.getElementById('generate-button').addEventListener('click', function () {
-        console.log("Button clicked!"); // Logs every time the button is clicked
 
         // Get selected races for the first name
         const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value);
@@ -48,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (hasError) {
-            console.log("Validation Failed: Missing selections.");
             return;
         }
 
@@ -61,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Fetch request to generate name
-        console.log("Validation Passed: Sending request...");
         fetch('/generate_name', {
             method: 'POST',
             headers: {
@@ -90,13 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('name-display').textContent = fullName;
                 currentName = fullName; // Store the latest name
                 updateGeneratedNamesDisplay();
-            } else {
-                document.getElementById('name-display').textContent = data.error || "An error occurred.";
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            document.getElementById('name-display').textContent = 'An error occurred.';
         });
     });
 
