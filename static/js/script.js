@@ -3,8 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
     let generatedNames = [];
     let currentName = ""; // Stores the most recently generated name to prevent premature additions
 
+    // Get important UI elements
+    const generateButton = document.getElementById('generate-button');
+    const raceWarning = document.getElementById('single-race-warning');
+    const firstRaceError = document.getElementById('first-race-error');
+    const firstGenderError = document.getElementById('first-gender-error');
+    const lastRaceError = document.getElementById('last-race-error');
+    const nameDisplay = document.getElementById('name-display');
+    const displayContainer = document.getElementById('generated-names-display');
+
+    // Ensure essential elements exist before adding event listeners
+    if (!generateButton || !raceWarning || !firstRaceError || !firstGenderError || !lastRaceError || !nameDisplay || !displayContainer) {
+        return; // Stop execution if required elements are missing
+    }
+
     // Event listener for the "Generate Name" button
-    document.getElementById('generate-button').addEventListener('click', function () {
+    generateButton.addEventListener('click', function () {
 
         // Get selected races for the first name
         const firstRaces = Array.from(document.querySelectorAll('input[name="first-race"]:checked')).map(el => el.value);
@@ -14,16 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Get selected races for the last name
         const lastRaces = Array.from(document.querySelectorAll('input[name="last-race"]:checked')).map(el => el.value);
 
-        // Get the warning and error elements
-        const raceWarning = document.getElementById('single-race-warning');
-        const firstRaceError = document.getElementById('first-race-error');
-        const firstGenderError = document.getElementById('first-gender-error');
-        const lastRaceError = document.getElementById('last-race-error');
-
         // Clear previous errors
         firstRaceError.style.display = "none";
         firstGenderError.style.display = "none";
         lastRaceError.style.display = "none";
+        raceWarning.style.display = "none";
 
         let hasError = false;
 
@@ -50,13 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Show or hide warnings based on selections
-        if ((firstRaces.length === 1 && lastRaces.length === 0) || (lastRaces.length === 1 && firstRaces.length === 0)) {
-            raceWarning.textContent = "One race selected, using for both first and last name.";
-            raceWarning.style.display = "block";
-        } else {
-            raceWarning.style.display = "none";
-        }
 
         // Fetch request to generate name
         fetch('/generate_name', {
@@ -70,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 lastRaces: lastRaces
             })
         })
-        .then(response => response.json())
+        .then(response => { // If the app cannot generate a name, it will error here out here ....
+            if (!response.ok) throw new Error("Failed to generate name.");
+            return response.json();
+        })
         .then(data => {
             if (data.firstName && data.lastName) {
                 const fullName = `${data.firstName} ${data.lastName}`;
@@ -84,19 +89,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 // Update display and set currentName to the new one
-                document.getElementById('name-display').textContent = fullName;
+                nameDisplay.textContent = fullName;
                 currentName = fullName; // Store the latest name
                 updateGeneratedNamesDisplay();
             }
         })
-        .catch(error => {
-            console.error('Error:', error);
+        .catch(() => { // ...and then display the no network error here!
+            // Display error message in UI instead of logging to console
+            nameDisplay.textContent = "Error: Unable to generate a name at this time. Is the app currently running?";
         });
     });
 
     // Function to update the previously generated names display
     function updateGeneratedNamesDisplay() {
-        const displayContainer = document.getElementById('generated-names-display');
         displayContainer.innerHTML = ""; // Clear previous list
 
         // Add all generated names to the display

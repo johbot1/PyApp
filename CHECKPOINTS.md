@@ -37,7 +37,7 @@
 - [✅] Naming is more consistent and formatted for JSON
 - [✅] Remove debugging statements in Javascript
 - [✅] Break Javascript into a separate file
-- [ ] Clean up JS
+- [✅] Clean up JS
 
 ### Workflow:
     User selects race(s) and gender.
